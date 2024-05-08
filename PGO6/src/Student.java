@@ -7,10 +7,12 @@ public class Student {
     private String address;
     private String phoneNumber;
     private Date birthDate;
-    static int count = 1;
-    int indexNumber;
-    static ArrayList<Student> students = new ArrayList<Student>();
-    static  ArrayList<Grade> grades = new ArrayList<Grade>();
+    private static int studentsCount = 1;
+    private String indexNumber;
+    private  ArrayList<Grade> grades = new ArrayList<Grade>();
+    private int currentSemester;
+    private String studentStatus;
+    private StudyProgramme studyprogramme;
 
 
     public Student(String name, String lname, String email, String address, String phoneNumber, Date birthDate) {
@@ -20,9 +22,11 @@ public class Student {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
+        this.indexNumber = "s"+studentsCount++;
         Student.students.add(this);
-        indexNumber = count++;
         this.grades = new ArrayList<Grade>();
+        this.currentSemester = 0;
+        this.studentStatus = "Candidate";
     }
 
     public String getName() {
